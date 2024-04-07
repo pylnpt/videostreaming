@@ -22,6 +22,9 @@
     "@trpc/react-query": "next",
     "@trpc/server": "next",
     "@vercel/postgres": "^0.8.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "lucide-react": "^0.365.0",
     "next": "^14.1.3",
     "next-auth": "^4.24.6",
     "node": "^18.20.1",
@@ -29,6 +32,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "superjson": "^2.2.1",
+    "tailwind-merge": "^2.2.2",
+    "tailwindcss-animate": "^1.0.7",
     "zod": "^3.22.4"
   },
   "devDependencies": {

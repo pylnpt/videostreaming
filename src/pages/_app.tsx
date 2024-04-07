@@ -6,11 +6,18 @@ import { Inter } from "next/font/google";
 import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
+import { cn } from "~/lib/utils";
+import { Inter as FontSans } from "next/font/google"
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
 });
+
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+})
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -18,7 +25,10 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <main className={`font-sans ${inter.variable}`}>
+      <main className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}>
         <Component {...pageProps} />
       </main>
     </SessionProvider>
