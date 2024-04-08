@@ -1,0 +1,28 @@
+root:
+- changed-files:
+  - any-glob-to-any-file: '*'
+
+Documentation:
+- changed-files:
+  - any-glob-to-any-file: '**/*.md'
+
+source:
+  - changed-files:
+    - any-glob-to-any-file: 'src/**/*'
+    - all-globs-to-all-files: '!src/docs/*'
+    - all-globs-to-all-files: '**/*.md'
+
+feature:
+ - head-branch: ['^feature', 'feature']
+
+bugfix:
+ - head-branch: ['^bugfix', 'bugfix']
+
+fronend:
+ - head-branch: ['^fronend', 'fronend']
+
+backend:
+ - head-branch: ['^backend', 'backend']
+
+release:
+ - base-branch: 'main'
