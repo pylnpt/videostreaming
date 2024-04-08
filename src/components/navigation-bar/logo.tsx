@@ -1,7 +1,6 @@
 import  Image  from "next/image";
 import Link from "next/link";
 import LogoIcon from "/public/logo.png"
-import { cn } from "~/lib/utils";
 
 export const Logo = () => {
     return (

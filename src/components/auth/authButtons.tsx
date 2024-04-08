@@ -5,7 +5,6 @@ import { Button } from "../ui/button";
 import  Image  from "next/image";
 
 import GoogleLogo from "/public/google.png"
-import GitHubLogo from "/public/GitHub.png"
 
 const SignInBtn = () => {
     const { data: session }= useSession();
