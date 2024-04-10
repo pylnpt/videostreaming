@@ -4,8 +4,10 @@ import useSideBar from "sidebar/use-sidebar";
 import { Button } from "../ui/button";
 import { ArrowLeftFromLine, ArrowRightFromLine } from "lucide-react";
 import HintTooltip from "../hint";
+import { useSession } from "next-auth/react";
 
 const ToggleButton = () => {
+    const { data: session }= useSession();
     const {
         collapsed,
         onExpand,
@@ -27,6 +29,14 @@ const ToggleButton = () => {
             </div>
         )}
         {!collapsed && (
+            <div>
+                <div className="p-3 pl-6 mb-2 flex items-center w-full">
+                {session?.user && (
+                <p className="font-semibold text-primary">
+                    Welcome {session.user.name}!
+                </p>
+            )}
+            </div>
             <div className="p-3 pl-6 mb-2 flex items-center w-full">
                 <p className="font-semibold text-primary">
                     For you
@@ -38,8 +48,9 @@ const ToggleButton = () => {
                         <ArrowLeftFromLine className="h-4 w-4"/>
                     </Button>
                 </HintTooltip>
-                
             </div>
+            </div>
+            
         )}
         </> 
     );
