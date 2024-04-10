@@ -28,7 +28,7 @@ export const RecomendedStreamer = ({ data }: RecomendedStreamerProps) => {
                         <StreamerItem 
                             key={user.id}
                             name={user.name}
-                            image={user.image || undefined}
+                            image={user.image ?? undefined}
                             isOnline={true} //user.isOnline
                     />
                     )}
@@ -41,9 +41,9 @@ export const RecomendedStreamer = ({ data }: RecomendedStreamerProps) => {
  export const RecomendedStreamerSkeleton = () => {
     return (
         <ul className="px-2">
-            {[...Array(3)].map(((_,i)=> (
-                <StreamerItemSkeleton key={i} />
-            )))}
+            <StreamerItemSkeleton key={1} />
+            <StreamerItemSkeleton key={2} />
+            <StreamerItemSkeleton key={3} />
         </ul>
     )
  } 
