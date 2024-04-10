@@ -12,7 +12,6 @@ const SignInBtn = () => {
     if(session && session.user) {
         return (
             <>
-                <div>{"Signed in as " + session.user.name }</div>
                 <Button onClick={() => signOut({redirect: false})}>
                     <Image 
                         src={GoogleLogo} 
