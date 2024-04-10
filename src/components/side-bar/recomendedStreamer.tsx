@@ -2,12 +2,13 @@
 
 import { User } from "@prisma/client";
 import useSideBar from "sidebar/use-sidebar";
+import { StreamerItem, StreamerItemSkeleton } from "./streamer-item";
 
 interface RecomendedStreamerProps {
     data: User[] | undefined;
 }
 
-const RecomendedStreamer = ({ data }: RecomendedStreamerProps) => {
+export const RecomendedStreamer = ({ data }: RecomendedStreamerProps) => {
     const { collapsed } = useSideBar((state) => state);
     const showLabel = !collapsed && data != undefined && data.length > 0;
 
@@ -23,12 +24,26 @@ const RecomendedStreamer = ({ data }: RecomendedStreamerProps) => {
         <ul className="space-y-2 px-2">
             {data?.map((user) =>(
                 <div key={user.id}>
-                    {user.name}
+                    {user.name !== null && (
+                        <StreamerItem 
+                            key={user.id}
+                            name={user.name}
+                            image={user.image || undefined}
+                            isOnline={true} //user.isOnline
+                    />
+                    )}
                 </div>
             ))}
         </ul>
         </>
     );
 }
- 
-export default RecomendedStreamer;
+ export const RecomendedStreamerSkeleton = () => {
+    return (
+        <ul className="px-2">
+            {[...Array(3)].map(((_,i)=> (
+                <StreamerItemSkeleton key={i} />
+            )))}
+        </ul>
+    )
+ } 
