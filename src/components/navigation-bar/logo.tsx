@@ -7,7 +7,7 @@ export const Logo = () => {
         <>
             <Link href="/">
                 <div className="flex items-center gap-x-4 hover:opacity-75 transition">
-                    <div className="bg-[#3DD68C] rounded-full p-1">
+                    <div className="bg-primary rounded-full p-1 mr-12 shrink-0">
                         <Image 
                             src={LogoIcon} 
                             alt="streamLogo"
