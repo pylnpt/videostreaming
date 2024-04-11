@@ -8,22 +8,21 @@ import { useRouter } from "next/router";
 import { Skeleton } from "../ui/skeleton";
 
 export const SideBar =  () => {
-    const { data: session }= useSession();
+    const { data: session } = useSession();
     const fetchUsers = api.user.getAllUser.useQuery();  
-    console.log(fetchUsers.data);
- 
-    return ( 
-        <>
-            <SideBarWrapper>
-                <ToggleButton />
-                {session?.user && (
-                    <div className="space-y-4 pt-4 lg:pt-0">
-                    <RecomendedStreamer data={fetchUsers.data}/>
-                </div>
-                )}
-            </SideBarWrapper>
-        </>
-     );
+
+        return ( 
+            <>
+                <SideBarWrapper>
+                    <ToggleButton />
+                    {session?.user && (
+                        <div className="space-y-4 pt-4 lg:pt-0">
+                        <RecomendedStreamer data={fetchUsers.data}/>
+                    </div>
+                    )}
+                </SideBarWrapper>
+            </>
+         );
 }
 
 export const SideBarSkeleton = () => {
