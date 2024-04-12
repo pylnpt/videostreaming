@@ -26,6 +26,7 @@ export const RecomendedStreamer = ({ data }: RecomendedStreamerProps) => {
                 <div key={user.id}>
                     {user.name !== null && (
                         <StreamerItem 
+                            userId={user.id}
                             key={user.id}
                             name={user.name}
                             image={user.image ?? undefined}

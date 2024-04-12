@@ -9,19 +9,21 @@ import { Skeleton } from "../ui/skeleton";
 import OnlineStreamerBadge from "../online-streamer-badge";
 
 interface StreamerItemProps {
+    userId: string,
     name : string;
     image: string | undefined;
     isOnline?: boolean;
 }
 
 export const StreamerItem = ({
+    userId,
     name,
     image,
     isOnline,
 }: StreamerItemProps) => {
     const pathName = usePathname();
     const { collapsed } = useSideBar((state) => state);
-    const href = `/${name}`;
+    const href = `/${userId}`;
     const isActive = pathName === href;
 
     return (  
