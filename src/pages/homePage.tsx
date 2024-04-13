@@ -10,16 +10,7 @@ const HomePage = ({
 }) => {
     return (
         <>
-            <NavBar />
-            <div className="flex h-full pt-20">
-                <Suspense fallback={<SideBarSkeleton/>}>
-                    <SideBar />
-                </Suspense>
-                <Container>
-                    <div>HomePage</div>
-                    {/* {children} */}
-                </Container>
-            </div>
+         <div>HomePage</div>
         </>
     )
 }
