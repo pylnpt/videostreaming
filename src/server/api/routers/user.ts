@@ -10,4 +10,7 @@ import {
         protectedProcedure.query(async ({ ctx }) => {
         return await ctx.db.user.findMany();
     })
+
+
+    //getuserbyId implementation
   })
