@@ -3,7 +3,6 @@
 import onFollow from "~/actions/follow";
 import { Button } from "./ui/button"
 import { useState, useTransition } from "react";
-import { toast } from "sonner";
 import { api } from "~/utils/api";
 import { revalidatePath } from "next/cache";
 import { useMutation } from "@tanstack/react-query";

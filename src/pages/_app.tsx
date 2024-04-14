@@ -8,6 +8,8 @@ import { api } from "~/utils/api";
 import "~/styles/globals.css";
 import { cn } from "~/lib/utils";
 import { Inter as FontSans } from "next/font/google"
+import Layout from "~/components/layouts/layout";
+import { ReactNode } from "react";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -18,14 +20,19 @@ const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
+  
   return (
     <SessionProvider session={session}>
+      
       <main className={cn(
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
         )}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </main>
+      
     </SessionProvider>
   );
 };

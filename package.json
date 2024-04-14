@@ -26,6 +26,7 @@
     "@trpc/next": "next",
     "@trpc/react-query": "next",
     "@trpc/server": "next",
+    "@types/next": "^9.0.0",
     "@vercel/postgres": "^0.8.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -62,7 +63,7 @@
     "prettier-plugin-tailwindcss": "^0.5.11",
     "prisma": "^5.12.1",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.5"
   },
   "ct3aMetadata": {
     "initVersion": "7.30.0"
