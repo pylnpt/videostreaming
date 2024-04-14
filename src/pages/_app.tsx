@@ -1,13 +1,14 @@
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
-import { type AppType } from "next/app";
+import { AppProps, type AppType } from "next/app";
 
 import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
 import { cn } from "~/lib/utils";
 import { Inter as FontSans } from "next/font/google"
-import Layout from "~/components/layout";
+import Layout from "~/components/layouts/layout";
+import { ReactNode } from "react";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -18,16 +19,19 @@ const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
+  
   return (
     <SessionProvider session={session}>
-      <Layout>
+      
       <main className={cn(
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
         )}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </main>
-      </Layout>
+      
     </SessionProvider>
   );
 };
