@@ -1,6 +1,7 @@
 "use client"
 
 import { Suspense } from 'react';
+import { Toaster } from 'sonner';
 import Container from '~/components/container';
 import NavBar from '~/components/navigation-bar/navbar';
 import { SideBar, SideBarSkeleton } from '~/components/main-side-bar/sidebar';
@@ -11,7 +12,17 @@ const HomePage = ({
 }) => {
     return (
         <>
-         <div>HomePage</div>
+        <Toaster theme='dark' position='bottom-left'/>
+        <NavBar />
+            <div className="flex h-full pt-20">
+                <Suspense fallback={<SideBarSkeleton/>}>
+                    <SideBar />
+                </Suspense>
+                <Container>
+                    <div>HomePage</div>
+                    {/* {children} */}
+                </Container>
+            </div>
         </>
     )
 }

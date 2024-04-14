@@ -1,6 +1,7 @@
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
-import { AppProps, type AppType } from "next/app";
+import { type AppType } from "next/app";
+import { Toaster } from "sonner"
 
 import { api } from "~/utils/api";
 
