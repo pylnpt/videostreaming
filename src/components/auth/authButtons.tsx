@@ -6,9 +6,12 @@ import  Image  from "next/image";
 
 import GoogleLogo from "/public/google.png"
 
+
 const SignInBtn = () => {
     const { data: session }= useSession();
-
+    const handleClick = () => {
+        signIn();
+    };
     if(session && session.user) {
         return (
             <>
@@ -27,7 +30,7 @@ const SignInBtn = () => {
     return (
         
         <>
-            <Button onClick={() =>signIn()}>
+            <Button onClick={handleClick}>
                 <Image 
                     src={GoogleLogo} 
                     alt="googleLogo"

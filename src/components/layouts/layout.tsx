@@ -9,22 +9,18 @@ import DashboardNavBar from "../dashboard-navigation-bar/dashboard-navbar";
 import DashBoardContainer from "../dashboard-side-bar/dashboard-container";
 
 const Layout = ({children} : {children : React.ReactNode}) => {
-
-   
-    // parts != null ? lastString = parts[parts.length - 1] : lastString = ""; 
-    const [lastString, setlastString] = useState("");
+    const [isDashboardView, setIsDashboardView] = useState(false);
     const path = usePathname();
 
 
-    // This effect will run after every render
     useEffect(() => {
-        const parts = path.split("/");
-        const res : string = parts[parts.length - 1]
-        setlastString(res);
-        
+        if(path !== null){
+            const parts = path.split("/");
+            parts[1] === "dashboard" ?  setIsDashboardView(true) : setIsDashboardView(false);
+        }
     }), [];
     
-    if(lastString !== 'dashboard'){
+    if(!isDashboardView){
         return (  
             <>
                 <NavBar />

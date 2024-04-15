@@ -3,7 +3,6 @@ import  Link  from "next/link";
 import useSideBar from "sidebar/use-sidebar";
 import { Button } from "../ui/button";
 import { cn } from "~/lib/utils";
-import { Rethink_Sans } from "next/font/google";
 import { Skeleton } from "../ui/skeleton";
 
 interface DashboardSidebarItemProps {

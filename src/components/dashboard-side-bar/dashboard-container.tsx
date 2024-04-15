@@ -22,7 +22,9 @@ const DashBoardContainer = ({
     }, [matches, onCollapse, onExpand]);
     return (
         <>
-        <div>
+        <div className={cn(
+            'flex-1', 
+            collapsed? 'ml-[70px]' : 'lg:ml-60')}>
             {children}
         </div>
         </>

@@ -8,29 +8,36 @@ import { revalidatePath } from "next/cache";
 import { useMutation } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
 
-interface FollowButtonProps {
-    isFollowing: boolean;
-    userId: string
-}
+// interface FollowButtonProps {
+//     // isFollowing: boolean;
+//     userId: string
+// }
 
-export function  FollowButton  ({isFollowing, userId}: FollowButtonProps)  {
-    const mutation = api.user.followUser.useMutation();
-   
+export async function  FollowButton  (userId)  {
+  if (userId !== undefined){
+    const mutation = await api.user.followUser.useMutation();
     const handleFollow = () => {
-        try {
-          // Call the TRPC mutation function to follow/unfollow the user
-          const id = userId;
-           mutation.mutate({ id });
-        } catch (error) {
-          console.error('Error following/unfollowing user:', error);
-      };
+      try {
+        // Call the TRPC mutation function to follow/unfollow the user
+        const id = userId;
+         mutation.mutate({ id });
+      } catch (error) {
+        console.error('Error following/unfollowing user:', error);
+    };
+  }
+    
+   
+    
+
+
     }
     return (
-        <Button 
-            variant="default"
-            key={userId}
-            onClick={handleFollow}>
-            Follow
-        </Button>
+      <Button>FOLLOWBUTTONCONTECT</Button>
+        // <Button 
+        //     variant="default"
+        //     key={userId}
+        //     onClick=(() => )>
+        //     Follow
+        // </Button>
     );
 }

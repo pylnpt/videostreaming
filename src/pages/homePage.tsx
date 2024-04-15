@@ -12,17 +12,7 @@ const HomePage = ({
 }) => {
     return (
         <>
-        <Toaster theme='dark' position='bottom-left'/>
-        <NavBar />
-            <div className="flex h-full pt-20">
-                <Suspense fallback={<SideBarSkeleton/>}>
-                    <SideBar />
-                </Suspense>
-                <Container>
-                    <div>HomePage</div>
-                    {/* {children} */}
-                </Container>
-            </div>
+            <div>HomePage</div>
         </>
     )
 }

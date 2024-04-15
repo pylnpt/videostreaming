@@ -8,25 +8,27 @@ import {
 } from "lucide-react";
 import DashboardSidebarItem from "./dashboard-sidebar-item";
 import { DashboardSideBarSkeleton } from "./dashboard-sidebar";
+import { useSession } from "next-auth/react";
 
 const DashBoardSideBarItems = () => {
-    const pathName = usePathname();  
+    const pathName = usePathname(); 
+    const { data: session } = useSession(); 
     // const user = user.getUserByID ---> TODO: IMPLEMENT IT HERE TOO!
-    const userName = "John Doe" //TEMPORARY
+    const userName = "John Doe" //TEMPORARY it si goig to be userId
     const routes = [
         {
             label: "Stream",
-            href: `/user/${userName}/stream`,
+            href: `/dashboard/${session?.user.id}/stream`,
             icon: Fullscreen
         },
         {
             label: "Keys",
-            href: `/user/${userName}/keys`,
+            href: `/dashboard/${session?.user.id}/keys`,
             icon: KeyRound
         },
         {
             label: "Chat",
-            href: `/user/${userName}/chat`,
+            href: `/dashboard/${session?.user.id}/chat`,
             icon: MessageSquare
         },
     ];
