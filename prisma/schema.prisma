@@ -3,6 +3,7 @@
 
 generator client {
     provider = "prisma-client-js"
+    previewFeatures = ["fullTextSearch", "fullTextIndex"]
 }
 
 datasource db {
@@ -57,6 +58,24 @@ model User {
     bio           String?
     following     Follow[] @relation("Following")
     followedBy    Follow[] @relation("FollowedBy")
+    stream Stream?
+}
+model Stream {
+    id              String @id @default(cuid())
+    name            String
+    thumbNailUrl    String?
+    ingressId       String? @unique
+    serverUrl       String? 
+    streamKey       String?
+    createdAt       DateTime @default(now())
+    updatedAt       DateTime @updatedAt
+
+    isLive          Boolean  @default(false)
+    userId          String @unique
+    user User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@index([userId])
+    @@index([ingressId])
 }
 
 model Follow{
